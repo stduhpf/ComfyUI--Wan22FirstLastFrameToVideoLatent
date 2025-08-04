@@ -31,7 +31,10 @@ You can then use it with just a start frame (functionally equivalent to the Wan2
 
 | Start Frame | End Frame | Output |
 | --- | --- | --- |
-| <img width="1024" height="1024" alt="start_image" src="https://github.com/user-attachments/assets/709bac70-652e-4b3e-8551-c59ef2a98c0d" > | <img width="1024" height="1024" alt="end_image" src="https://github.com/user-attachments/assets/c94b2bda-74cc-4518-bdfb-d5377bb84313" />  | <video width="1024" height="1024" alt=" result(workflow included)" src="https://github.com/user-attachments/assets/c984fb2f-b5f3-4504-a16a-cbaea815066c" /> |
+| <img width="1024" height="1024" alt="start_image" src="https://github.com/user-attachments/assets/709bac70-652e-4b3e-8551-c59ef2a98c0d" > | <img width="1024" height="1024" alt="end_image" src="https://github.com/user-attachments/assets/c94b2bda-74cc-4518-bdfb-d5377bb84313" />  | [Download (workflow included)](https://github.com/user-attachments/assets/23542a20-feb9-4bc0-968a-3855fba8b60a) <video width="1024" height="1024" alt="video preview" src="https://github.com/user-attachments/assets/c984fb2f-b5f3-4504-a16a-cbaea815066c" /> |
+
+
+
 ## Acknowledgments
 
 Most of the code is either copied or heavily inspired by the built-in `Wan22ImageToVideoLatent` and `WanFirstLastFrameToVideo` nodes. Credit goes to comfyanonymous, the original author.
