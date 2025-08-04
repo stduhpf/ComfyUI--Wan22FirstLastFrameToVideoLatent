@@ -27,6 +27,11 @@ You need to connect the Wan2.2 VAE in the `vae` input.
 
 You can then use it with just a start frame (functionally equivalent to the Wan22ImageToVideoLatent), or with just an end frame, or both a start frame and end frame. The base Wan2.2 5B model can handle all these cases just fine.
 
+### Example:
+
+| Start Frame | End Frame | Output |
+| --- | --- | --- |
+| <img width="1024" height="1024" alt="start_image" src="https://github.com/user-attachments/assets/709bac70-652e-4b3e-8551-c59ef2a98c0d" > | <img width="1024" height="1024" alt="end_image" src="https://github.com/user-attachments/assets/c94b2bda-74cc-4518-bdfb-d5377bb84313" />  | <video width="1024" height="1024" alt=" result(workflow included)" src="https://github.com/user-attachments/assets/c984fb2f-b5f3-4504-a16a-cbaea815066c" /> |
 ## Acknowledgments
 
 Most of the code is either copied or heavily inspired by the built-in `Wan22ImageToVideoLatent` and `WanFirstLastFrameToVideo` nodes. Credit goes to comfyanonymous, the original author.
