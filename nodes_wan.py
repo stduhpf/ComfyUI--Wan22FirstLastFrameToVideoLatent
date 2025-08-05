@@ -65,7 +65,7 @@ class Wan22FirstLastFrameToVideoLatentTiledVAE:
                              "length": ("INT", {"default": 81, "min": 1, "max": nodes.MAX_RESOLUTION, "step": 4}),
                              "batch_size": ("INT", {"default": 1, "min": 1, "max": 4096}),
 
-                            "tile_size": ("INT", {"default": 512, "min": 64, "max": 4096, "step": 64}),
+                            "tile_size": ("INT", {"default": 512, "min": 128, "max": 4096, "step": 64}),
                             "overlap": ("INT", {"default": 64, "min": 0, "max": 4096, "step": 32}),
                             "temporal_size": ("INT", {"default": 64, "min": 8, "max": 4096, "step": 4, "tooltip": "Amount of frames to encode at a time."}),
                             "temporal_overlap": ("INT", {"default": 8, "min": 4, "max": 4096, "step": 4, "tooltip": "Amount of frames to overlap."})
@@ -94,12 +94,12 @@ class Wan22FirstLastFrameToVideoLatentTiledVAE:
         mask = torch.ones([latent.shape[0], 1, ((length - 1) // 4) + 1, latent.shape[-2], latent.shape[-1]], device=comfy.model_management.intermediate_device())
 
         if start_image is not None:
-            latent_temp = vae.encode(start_image, tile_x=tile_size, tile_y=tile_size, overlap=overlap, tile_t=temporal_size, overlap_t=temporal_overlap)
+            latent_temp = vae.encode_tiled(start_image, tile_x=tile_size, tile_y=tile_size, overlap=overlap, tile_t=temporal_size, overlap_t=temporal_overlap)
             latent[:, :, :latent_temp.shape[-3]] = latent_temp
             mask[:, :, :latent_temp.shape[-3]] *= 0.0
 
         if end_image is not None:
-            latent_temp = vae.encode(end_image, tile_x=tile_size, tile_y=tile_size, overlap=overlap, tile_t=temporal_size, overlap_t=temporal_overlap)
+            latent_temp = vae.encode_tiled(end_image, tile_x=tile_size, tile_y=tile_size, overlap=overlap, tile_t=temporal_size, overlap_t=temporal_overlap)
             latent[:, :, -latent_temp.shape[-3]:] = latent_temp
             mask[:, :, -latent_temp.shape[-3]:] *= 0.0
 
